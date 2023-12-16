@@ -15,26 +15,34 @@ class Exercise extends Model
     public function bodyPart(){
         return $this->belongsTo(BodyPart::class);
     }
+
+    public function instruction(){
+        return $this->hasMany(Instruction::class);
+    }
+
+    public function secondaryMuscle(){
+        return $this->hasMany(SecondaryMuscle::class);
+    }
     
     
     protected $table = 'exercises';
-    protected $fillable = ['bodypartId','equipment','gifUrl','name','target','instruction','secondaryMuscles'];
+    protected $fillable = ['bodypartId','equipment','gifUrl','name','target'];
 
-    protected function instruction(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => json_decode($value, true),
-            set: fn ($value) => json_encode($value),
-        );
-    }
+    // protected function instruction(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value) => json_decode($value, true),
+    //         set: fn ($value) => json_encode($value),
+    //     );
+    // }
 
-    protected function secondaryMuscles(): Attribute
-    {
-        return Attribute::make(
-            get: fn ($value) => json_decode($value, true),
-            set: fn ($value) => json_encode($value),
-        );
-    }
+    // protected function secondaryMuscles(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value) => json_decode($value, true),
+    //         set: fn ($value) => json_encode($value),
+    //     );
+    // }
     
 
 }

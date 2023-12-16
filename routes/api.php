@@ -22,7 +22,11 @@ use App\Http\Controllers\Api\ExercisesController;
 
 Route::get('exercises', [ExercisesController::class, 'index']);
 Route::get('bodyparts', [BodyPartController::class, 'index']);
+Route::get('instructions', [InstructionsController::class, 'index']);
+Route::get('muscles', [SecondaryMusclesController::class, 'index']);
 
 Route::post('exercises', [ExercisesController::class, 'store']);
 Route::post('bodyparts', [BodyPartController::class, 'store']);
 Route::post("upload", [UploadController::class, 'upload']);
+Route::post('instructions', [InstructionsController::class, 'store']);
+Route::post('muscles', [SecondaryMusclesController::class, 'store']);
