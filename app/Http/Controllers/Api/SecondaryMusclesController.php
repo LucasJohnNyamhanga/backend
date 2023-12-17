@@ -56,7 +56,7 @@ class SecondaryMusclesController extends Controller
             ], 422);
         }else{
             $secondaryMuscles = SecondaryMuscle::create([
-                'exerciseId' => $request->exerciseId,
+                'exercise_id' => $request->exercise_id,
                 'name' => $request->name,
             ]);
 
