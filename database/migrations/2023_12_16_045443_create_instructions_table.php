@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('instructions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('exerciseId');
+            $table->foreignId('exercise_id');
             $table->string('name');
             $table->timestamps();
-            $table->foreign('exerciseId')->references('id')->on('exercises')->onDelete('cascade');
+            $table->foreign('exercise_id')->references('id')->on('exercises')->onDelete('cascade');
         });
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\SecondaryMuscle;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoresecondaryMusclesRequest;
 use App\Http\Requests\UpdatesecondaryMusclesRequest;
@@ -55,7 +56,8 @@ class SecondaryMusclesController extends Controller
             ], 422);
         }else{
             $secondaryMuscles = SecondaryMuscle::create([
-            'name' => $request->name,
+                'exerciseId' => $request->exerciseId,
+                'name' => $request->name,
             ]);
 
 

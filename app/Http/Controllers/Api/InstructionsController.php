@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Instruction;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreinstructionsRequest;
 use App\Http\Requests\UpdateinstructionsRequest;
@@ -55,7 +56,8 @@ class InstructionsController extends Controller
             ], 422);
         }else{
             $instructions = Instruction::create([
-            'name' => $request->name,
+                'exercise_id' => $request->exercise_id,
+                'name' => $request->name,
             ]);
 
 

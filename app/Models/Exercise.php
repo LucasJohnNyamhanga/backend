@@ -16,17 +16,17 @@ class Exercise extends Model
         return $this->belongsTo(BodyPart::class);
     }
 
-    public function instruction(){
+    public function inst(){
         return $this->hasMany(Instruction::class);
     }
 
-    public function secondaryMuscle(){
+    public function muscle(){
         return $this->hasMany(SecondaryMuscle::class);
     }
     
     
     protected $table = 'exercises';
-    protected $fillable = ['bodypartId','equipment','gifUrl','name','target'];
+    protected $fillable = ['bodypart_id','equipment','gifUrl','name','target'];
 
     // protected function instruction(): Attribute
     // {

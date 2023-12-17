@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('bodypartId');
+            $table->foreignId('bodypart_id');
             $table->string('equipment')->nullable();;
             $table->string('gifUrl')->nullable();;
             $table->string('name');
             $table->string('target');
-            $table->json('instruction')->nullable();
-            $table->json('secondaryMuscles')->nullable();
             $table->timestamps();
-            $table->foreign('bodypartId')->references('id')->on('bodyparts')->onDelete('cascade');
+            $table->foreign('bodypart_id')->references('id')->on('bodyparts')->onDelete('cascade');
             
 
         });

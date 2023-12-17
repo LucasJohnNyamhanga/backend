@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Exercise;
+use App\Models\Instruction;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\StoreexercisesRequest;
@@ -15,20 +17,24 @@ class ExercisesController extends Controller
      */
     public function index()
     {
-        //
-         $exercises = Exercise::query()->paginate(10);
+       
+
+    $exercises = Exercise::with(['inst','muscle'])->paginate(10);
+
+
+            
          if($exercises -> count() > 0){
- $data = [
-            'status' => 200,
-            'data' => $exercises
-         ];
-         return response()->json($data, 200);
+            $data = [
+                        'status' => 200,
+                        'data' => $exercises
+                    ];
+            return response()->json($data, 200);
          }else{
              $data = [
             'status' => 404,
             'data' => 'No excercise found!.'
          ];
-         return response()->json($data, 404);
+            return response()->json($data, 404);
          }
         
     }
@@ -61,7 +67,7 @@ class ExercisesController extends Controller
             ], 422);
         }else{
             $exercises = Exercise::create([
-            'bodypartId' => $request->bodypartId,
+            'bodypart_id' => $request->bodypart_id,
             'equipment' => $request->equipment,
             'gifUrl' => $request->gifUrl,
             'name' => $request->name,

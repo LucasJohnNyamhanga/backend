@@ -15,5 +15,5 @@ class Instruction extends Model
     }
 
     protected $table = 'instructions';
-    protected $fillable = ['name'];
+    protected $fillable = ['name','exercise_id'];
 }

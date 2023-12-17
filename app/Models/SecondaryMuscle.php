@@ -14,5 +14,5 @@ class SecondaryMuscle extends Model
     }
 
     protected $table = 'secondaryMuscle';
-    protected $fillable = ['name'];
+    protected $fillable = ['name','exercise_id'];
 }
