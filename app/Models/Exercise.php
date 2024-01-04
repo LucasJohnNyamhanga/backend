@@ -26,7 +26,7 @@ class Exercise extends Model
     
     
     protected $table = 'exercises';
-    protected $fillable = ['bodypart_id','equipment','gifUrl','name','target'];
+    protected $fillable = ['bodypart_id','equipment','gifUrl','name'];
 
     // protected function instruction(): Attribute
     // {

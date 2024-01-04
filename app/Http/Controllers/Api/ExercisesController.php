@@ -19,7 +19,7 @@ class ExercisesController extends Controller
     {
        
 
-    $exercises = Exercise::with(['inst','muscle'])->paginate(10);
+    $exercises = Exercise::with(['inst','muscle','bodyPart'])->paginate(10);
 
 
             
@@ -57,7 +57,7 @@ class ExercisesController extends Controller
             'equipment' => 'string',
             'gifUrl' => 'string',
             'name' => 'required|string',
-            'target' => 'string',
+            //'target' => 'string',
         ]);
 
         if($validator->fails()){
@@ -71,9 +71,9 @@ class ExercisesController extends Controller
             'equipment' => $request->equipment,
             'gifUrl' => $request->gifUrl,
             'name' => $request->name,
-            'target' => $request->target,
-            'instruction' => $request->instruction,
-            'secondaryMuscles' => $request->secondaryMuscles,
+            //'target' => $request->target,
+            //'instruction' => $request->instruction,
+            //'secondaryMuscles' => $request->secondaryMuscles,
             ]);
 
 

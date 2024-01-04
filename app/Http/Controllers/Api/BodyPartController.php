@@ -48,6 +48,7 @@ class BodyPartController extends Controller
         //
         $validator =  Validator::make($request->all(), [
             'name' => 'string',
+            'imgUrl' => 'string',
         ]);
 
         if($validator->fails()){
@@ -58,13 +59,14 @@ class BodyPartController extends Controller
         }else{
             $body = BodyPart::create([
                 'name' => $request->name,
+                'imgUrl' => $request->imgUrl,
             ]);
 
 
             if($body){
             return response()->json([
                 'status'=>200,
-                'data'=>'Excercise Created Successfully'
+                'data'=>'Body Target Created Successfully'
             ], 200);
             }else{
             return response()->json([

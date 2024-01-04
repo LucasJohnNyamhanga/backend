@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('bodyparts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('imgUrl');
             $table->timestamps();
 
         });

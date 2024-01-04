@@ -15,5 +15,5 @@ class bodyPart extends Model
     }
 
     protected $table = 'bodyparts';
-    protected $fillable = ['name'];
+    protected $fillable = ['name','imgUrl'];
 }

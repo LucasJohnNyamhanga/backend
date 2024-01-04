@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('equipment')->nullable();;
             $table->string('gifUrl')->nullable();;
             $table->string('name');
-            $table->string('target');
+            //$table->string('target');
             $table->timestamps();
             $table->foreign('bodypart_id')->references('id')->on('bodyparts')->onDelete('cascade');
             
